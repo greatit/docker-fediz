@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.greatit</groupId>
+  <artifactId>docker-fediz</artifactId>
+  <version>0.1.0</version>
+
+  <name>Apache Fediz Docker image</name>
+
+  <properties>
+    <project.java.version>1.8</project.java.version>
+    <fediz.version>1.4.4</fediz.version>
+    <docker-plugin.version>0.28.0</docker-plugin.version>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>io.fabric8</groupId>
+        <artifactId>docker-maven-plugin</artifactId>
+        <version>${docker-plugin.version}</version>
+        <configuration>
+          <images>
+            <image>
+	      <name>greatit/fediz:${fediz.version}-sts</name>
+              <build>
+                <dockerFile>Dockerfile</dockerFile>
+                <args>
+                  <FEDIZ_VERSION>${fediz.version}</FEDIZ_VERSION>
+                </args>
+              </build>
+            </image>
+          </images>
+        </configuration>
+        <executions>
+          <execution>
+            <id>build-image</id>
+            <goals>
+              <goal>build</goal>
+            </goals>
+            <phase>install</phase>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <source>${project.java.version}</source>
+            <target>${project.java.version}</target>
+            <encoding>${project.build.sourceEncoding}</encoding>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
