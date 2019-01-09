@@ -24,9 +24,13 @@
         <configuration>
           <images>
             <image>
-	      <name>greatit/fediz:${fediz.version}-sts</name>
+              <name>greatit/fediz</name>
               <build>
                 <dockerFile>Dockerfile</dockerFile>
+                <tags>
+                  <tag>latest</tag>
+                  <tag>${fediz.version}-sts</tag>
+                </tags>
                 <args>
                   <FEDIZ_VERSION>${fediz.version}</FEDIZ_VERSION>
                 </args>
