@@ -21,7 +21,8 @@ RUN mkdir ${TOMCAT_HOME}/webapps/fediz-idp-sts && \
 # remove demo config
 RUN rm -f ${FEDIZ_HOME}/WEB-INF/classes/*.cert \
  ${FEDIZ_HOME}/WEB-INF/classes/*.jks \
- ${FEDIZ_HOME}/WEB-INF/classes/sts*.properties 
+ ${FEDIZ_HOME}/WEB-INF/classes/stsKeystore*.properties \
+ ${FEDIZ_HOME}/WEB-INF/classes/stsTruststore.properties
 COPY WEB-INF/cxf-transport.xml ${FEDIZ_HOME}/WEB-INF/cxf-transport.xml
 COPY WEB-INF/kerberos.jaas ${FEDIZ_HOME}/WEB-INF/kerberos.jaas
 COPY WEB-INF/classes/* ${FEDIZ_HOME}/WEB-INF/classes/
