@@ -1,3 +1,6 @@
+v0.4.0 / yyyy-MM-dd
+===================
+
 v0.3.0 / 2019-01-10
 ===================
 * removes licensing information
