@@ -1,3 +1,7 @@
+v0.3.0 / 2019-01-10
+===================
+* removes licensing information
+
 v0.2.0 / 2019-01-09
 ===================
 * fixes sts.properties deletion in Dockerfile
